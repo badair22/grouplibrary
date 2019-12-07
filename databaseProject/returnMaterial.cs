@@ -26,7 +26,6 @@ namespace databaseProject
             string input3 = checkoutTextbox.Text;
             int num = -1;
 
-            //needs fixed, only runs second command.
             if (int.TryParse(input, out num) && input != null && input2 != null && int.TryParse(input3, out num))
             {
                 con.Open();
@@ -54,6 +53,13 @@ namespace databaseProject
                 materialTextbox.Clear();
                 conditionCombobox.SelectedIndex = -1;
             }
+        }
+
+        private void homeButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            homePage homePage = new homePage();
+            homePage.Show();
         }
     }
 }

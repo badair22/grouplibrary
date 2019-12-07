@@ -156,6 +156,11 @@
     <Compile Include="homePage.Designer.cs">
       <DependentUpon>homePage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Library_DBDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Library_DBDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="removeMaterial.cs">
@@ -170,6 +175,12 @@
     <Compile Include="returnMaterial.Designer.cs">
       <DependentUpon>returnMaterial.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="checkoutMaterial.resx">
+      <DependentUpon>checkoutMaterial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="createAccount.resx">
+      <DependentUpon>createAccount.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="homePage.resx">
       <DependentUpon>homePage.cs</DependentUpon>
     </EmbeddedResource>
@@ -188,6 +199,17 @@
     <EmbeddedResource Include="returnMaterial.resx">
       <DependentUpon>returnMaterial.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Library_DBDataSet.xsc">
+      <DependentUpon>Library_DBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Library_DBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Library_DBDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Library_DBDataSet.xss">
+      <DependentUpon>Library_DBDataSet.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
