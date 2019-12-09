@@ -13,7 +13,7 @@ namespace databaseProject
 {
     public partial class createAccount : Form
     {
-        SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-0DDCEJQ;Initial Catalog=Library_DB;Integrated Security=True");
+        SqlConnection con = new SqlConnection(@"Data Source=localhost;Initial Catalog=Library_DB;Integrated Security=True");
         public createAccount()
         {
             InitializeComponent();
@@ -27,12 +27,12 @@ namespace databaseProject
             string address = addressTextbox.Text;
             int num = -1;
 
-            if (firstName != null && lastName != null && address != null && int.TryParse(phone, out num) && phone != null)
+            if (firstName != null && lastName != null && address != null && phone != null)
             {
                 SqlCommand cmd = con.CreateCommand();
                 con.Open();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "insert into LibraryAccounts values ('" + firstTextbox.Text + "','" + lastTextbox.Text + "','" + addressTextbox.Text + "','" + phoneTextbox.Text + "','"+0.00+"')";
+                cmd.CommandText = "insert into LibraryAccounts values ('" + firstName + "','" + lastName + "','" + address + "','" + phone + "','"+0.00+"')";
                 cmd.ExecuteNonQuery();
                 con.Close();
                 MessageBox.Show("Account Creation Successful.");
@@ -46,6 +46,13 @@ namespace databaseProject
             {
                 MessageBox.Show("Please make sure all fields are filled in and that everything is valid.");
             }
+        }
+
+        private void homeButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            homePage homePage = new homePage();
+            homePage.Show();
         }
     }
 }

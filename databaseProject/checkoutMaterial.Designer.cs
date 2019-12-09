@@ -30,26 +30,26 @@
         {
             this.components = new System.ComponentModel.Container();
             this.titleCombobox = new System.Windows.Forms.ComboBox();
-            this.library_DBDataSet = new databaseProject.Library_DBDataSet();
-            this.libraryDBDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.materialsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.materialsTableAdapter = new databaseProject.Library_DBDataSetTableAdapters.MaterialsTableAdapter();
+            this.library_DBDataSet = new databaseProject.Library_DBDataSet();
             this.materialsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.libraryDBDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.materialsTableAdapter = new databaseProject.Library_DBDataSetTableAdapters.MaterialsTableAdapter();
             this.titleLabel = new System.Windows.Forms.Label();
             this.authorLabel = new System.Windows.Forms.Label();
             this.authorCombobox = new System.Windows.Forms.ComboBox();
+            this.authorsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.conditionCombobox = new System.Windows.Forms.ComboBox();
             this.conditionLabel = new System.Windows.Forms.Label();
-            this.authorsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.authorsTableAdapter = new databaseProject.Library_DBDataSetTableAdapters.AuthorsTableAdapter();
             this.homeButton = new System.Windows.Forms.Button();
             this.submitButton = new System.Windows.Forms.Button();
             this.accountLabel = new System.Windows.Forms.Label();
             this.accountTextbox = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.library_DBDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.libraryDBDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.materialsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.library_DBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.materialsBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.libraryDBDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.authorsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,31 +63,31 @@
             this.titleCombobox.Name = "titleCombobox";
             this.titleCombobox.Size = new System.Drawing.Size(188, 21);
             this.titleCombobox.TabIndex = 0;
-            this.titleCombobox.ValueMember = "Title";
-            // 
-            // library_DBDataSet
-            // 
-            this.library_DBDataSet.DataSetName = "Library_DBDataSet";
-            this.library_DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // libraryDBDataSetBindingSource
-            // 
-            this.libraryDBDataSetBindingSource.DataSource = this.library_DBDataSet;
-            this.libraryDBDataSetBindingSource.Position = 0;
+            this.titleCombobox.ValueMember = "MaterialID";
             // 
             // materialsBindingSource
             // 
             this.materialsBindingSource.DataMember = "Materials";
             this.materialsBindingSource.DataSource = this.library_DBDataSet;
             // 
-            // materialsTableAdapter
+            // library_DBDataSet
             // 
-            this.materialsTableAdapter.ClearBeforeFill = true;
+            this.library_DBDataSet.DataSetName = "Library_DBDataSet";
+            this.library_DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // materialsBindingSource1
             // 
             this.materialsBindingSource1.DataMember = "Materials";
             this.materialsBindingSource1.DataSource = this.libraryDBDataSetBindingSource;
+            // 
+            // libraryDBDataSetBindingSource
+            // 
+            this.libraryDBDataSetBindingSource.DataSource = this.library_DBDataSet;
+            this.libraryDBDataSetBindingSource.Position = 0;
+            // 
+            // materialsTableAdapter
+            // 
+            this.materialsTableAdapter.ClearBeforeFill = true;
             // 
             // titleLabel
             // 
@@ -119,6 +119,11 @@
             this.authorCombobox.TabIndex = 3;
             this.authorCombobox.ValueMember = "AuthorID";
             // 
+            // authorsBindingSource
+            // 
+            this.authorsBindingSource.DataMember = "Authors";
+            this.authorsBindingSource.DataSource = this.libraryDBDataSetBindingSource;
+            // 
             // conditionCombobox
             // 
             this.conditionCombobox.FormattingEnabled = true;
@@ -141,11 +146,6 @@
             this.conditionLabel.TabIndex = 5;
             this.conditionLabel.Text = "Condition";
             // 
-            // authorsBindingSource
-            // 
-            this.authorsBindingSource.DataMember = "Authors";
-            this.authorsBindingSource.DataSource = this.libraryDBDataSetBindingSource;
-            // 
             // authorsTableAdapter
             // 
             this.authorsTableAdapter.ClearBeforeFill = true;
@@ -158,6 +158,7 @@
             this.homeButton.TabIndex = 6;
             this.homeButton.Text = "Home";
             this.homeButton.UseVisualStyleBackColor = true;
+            this.homeButton.Click += new System.EventHandler(this.homeButton_Click);
             // 
             // submitButton
             // 
@@ -203,10 +204,10 @@
             this.Name = "checkoutMaterial";
             this.Text = "checkoutMaterial";
             this.Load += new System.EventHandler(this.checkoutMaterial_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.library_DBDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.libraryDBDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.materialsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.library_DBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.materialsBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.libraryDBDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.authorsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

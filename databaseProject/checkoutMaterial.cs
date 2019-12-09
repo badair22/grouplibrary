@@ -13,7 +13,7 @@ namespace databaseProject
 {
     public partial class checkoutMaterial : Form
     {
-        SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-0DDCEJQ;Initial Catalog=Library_DB;Integrated Security=True");
+        SqlConnection con = new SqlConnection(@"Data Source=localhost;Initial Catalog=Library_DB;Integrated Security=True");
         public checkoutMaterial()
         {
             InitializeComponent();
@@ -36,23 +36,16 @@ namespace databaseProject
             string input4 = accountTextbox.Text;
             int num = -1;
 
-            if (input != null && input2 != null && input3 != null)
+            if (input != null && input2 != null && input3 != null && input4 != null)
             {
-                //first insert statement is not working
-                //may just use the second only
-
-                //con.Open();
                 SqlCommand cmd = con.CreateCommand();
-                //cmd.CommandType = CommandType.Text;
-                //cmd.CommandText = "insert into CheckoutMaterials values ('"+ 11 + "', '" + Convert.ToDouble(titleCombobox.Text) + "')";
-                //cmd.ExecuteNonQuery();
-                //con.Close();
+
                 if ( input != null && input2 != null && input3 != null && int.TryParse(input4, out num) && input4 != null)
                 {
                     //fix the return date
                     con.Open();
                     cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = "insert into CheckOuts values ('" + accountTextbox.Text + "', '" + DateTime.Now + "', '"+ DateTime.Now +"')";
+                    cmd.CommandText = "insert into CheckOuts values ('" + input4 + "', '" + DateTime.Now + "', '"+ DateTime.Now.AddDays(20) +"', '"+ titleCombobox.SelectedValue +"', '"+ input2 +"')";
                     cmd.ExecuteNonQuery();
                     con.Close();
                     MessageBox.Show("Checkout Successful.");
@@ -66,13 +59,14 @@ namespace databaseProject
             else
             {
                 MessageBox.Show("Please enter a number and select a condition.");
-                conditionCombobox.SelectedIndex = -1;
-                titleCombobox.SelectedIndex = -1;
-                conditionCombobox.SelectedIndex = -1;
-                authorCombobox.SelectedIndex = -1;
-                accountTextbox.Clear();
-                conditionCombobox.SelectedIndex = -1;
             }
+        }
+
+        private void homeButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            homePage homePage = new homePage();
+            homePage.Show();
         }
     }
 }

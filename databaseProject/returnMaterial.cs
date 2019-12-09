@@ -13,7 +13,7 @@ namespace databaseProject
 {
     public partial class returnMaterial : Form
     {
-        SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-0DDCEJQ;Initial Catalog=Library_DB;Integrated Security=True");
+        SqlConnection con = new SqlConnection(@"Data Source=localhost;Initial Catalog=Library_DB;Integrated Security=True");
         public returnMaterial()
         {
             InitializeComponent();

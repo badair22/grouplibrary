@@ -13,7 +13,7 @@ namespace databaseProject
 {
     public partial class removeMaterial : Form
     {
-        SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-0DDCEJQ;Initial Catalog=Library_DB;Integrated Security=True");
+        SqlConnection con = new SqlConnection(@"Data Source=localhost;Initial Catalog=Library_DB;Integrated Security=True");
         public removeMaterial()
         {
             InitializeComponent();
@@ -29,11 +29,19 @@ namespace databaseProject
                 con.Open();
                 SqlCommand cmd = con.CreateCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "delete from Materials where MaterialID='" + removeTextbox.Text + "'";
+                cmd.CommandText = "delete from CheckoutMaterials where MaterialID='" + removeTextbox.Text + "'";
                 cmd.ExecuteNonQuery();
                 con.Close();
-                MessageBox.Show("Record removed successfully.");
-                removeTextbox.Clear();
+                if (int.TryParse(input, out num) && input != null)
+                {
+                    con.Open();
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = "delete from Materials where MaterialID='" + removeTextbox.Text + "'";
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                    MessageBox.Show("Record removed successfully.");
+                    removeTextbox.Clear();
+                }
             }
             else
             {
