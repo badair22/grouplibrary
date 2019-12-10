@@ -25,9 +25,8 @@ namespace databaseProject
             string lastName = lastTextbox.Text;
             string phone = phoneTextbox.Text;
             string address = addressTextbox.Text;
-            int num = -1;
 
-            if (firstName != null && lastName != null && address != null && phone != null)
+            if (firstName != "" && lastName != "" && address != "" && phone != "")
             {
                 SqlCommand cmd = con.CreateCommand();
                 con.Open();

@@ -38,7 +38,7 @@ namespace databaseProject
             string producerFirst = producerFirstTextbox.Text;
             string producerLast = producerLastTextbox.Text;
 
-            if (title != null && publish != null && type != null && type != "" && language != null && authorFirst != null && authorLast != null || producerFirst != null && producerLast != null)
+            if (title != "" && publish != "" && type != "" && language != "" && authorFirst != "" && authorLast != "" || producerFirst != "" && producerLast != "")
             {
                 con.Open();
                 SqlCommand cmd = con.CreateCommand();
@@ -47,7 +47,7 @@ namespace databaseProject
                 cmd.ExecuteNonQuery();
                 con.Close();
 
-                if (authorFirst != null && authorLast != null)
+                if (authorFirst != "" && authorLast != "")
                 {
                     con.Open();
                     cmd.CommandType = CommandType.Text;
