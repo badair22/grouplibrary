@@ -44,6 +44,7 @@ namespace databaseProject
             else
             {
                 MessageBox.Show("Please make sure all fields are filled in and that everything is valid.");
+                MessageBox.Show("Test");
             }
         }
 
