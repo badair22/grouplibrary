@@ -49,6 +49,7 @@
             this.Controls.Add(this.homeButton);
             this.Name = "checkOuts";
             this.Text = "Checked Out Materials";
+            this.Load += new System.EventHandler(this.checkOuts_Load);
             this.ResumeLayout(false);
 
         }

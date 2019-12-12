@@ -23,5 +23,10 @@ namespace databaseProject
             homePage homePage = new homePage();
             homePage.Show();
         }
+
+        private void checkOuts_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -105,7 +105,16 @@ SELECT CheckOutID, MaterialID FROM CheckoutMaterials WHERE (CheckOutID = @CheckO
               <Mapping SourceColumn="CheckOutID" DataSetColumn="CheckOutID" />
               <Mapping SourceColumn="MaterialID" DataSetColumn="MaterialID" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="Library_DBConnectionString (Settings)" DbObjectName="Library_DB.dbo.CheckoutMaterials" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT CheckOutID, MaterialID FROM dbo.CheckoutMaterials</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="CheckOutsTableAdapter" GeneratorDataComponentClassName="CheckOutsTableAdapter" Name="CheckOuts" UserDataComponentName="CheckOutsTableAdapter">
             <MainSource>
@@ -400,7 +409,27 @@ SELECT AccountID, FName, LName, Address, PhoneNum, FeesOwed FROM LibraryAccounts
               <Mapping SourceColumn="PhoneNum" DataSetColumn="PhoneNum" />
               <Mapping SourceColumn="FeesOwed" DataSetColumn="FeesOwed" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="Library_DBConnectionString (Settings)" DbObjectName="Library_DB.dbo.LibraryAccounts" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT AccountID, FName, LName, Address, PhoneNum, FeesOwed FROM dbo.LibraryAccounts
+WHERE FeesOwed &gt; 0</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="Library_DBConnectionString (Settings)" DbObjectName="Library_DB.dbo.LibraryAccounts" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy1" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillBy1" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="FillBy1">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT        AccountID, FName, LName, Address, PhoneNum, FeesOwed
+FROM            LibraryAccounts
+WHERE        (FeesOwed &gt; 0)</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="MaterialAuthorTableAdapter" GeneratorDataComponentClassName="MaterialAuthorTableAdapter" Name="MaterialAuthor" UserDataComponentName="MaterialAuthorTableAdapter">
             <MainSource>
@@ -611,7 +640,18 @@ SELECT MaterialID, Title, PublishDate, Type, Condition, Language FROM Materials 
               <Mapping SourceColumn="Condition" DataSetColumn="Condition" />
               <Mapping SourceColumn="Language" DataSetColumn="Language" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="Library_DBConnectionString (Settings)" DbObjectName="Library_DB.dbo.Materials" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Checked_Out_Materials" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="Checked_Out_Materials" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="Checked_Out_Materials">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT        Materials.MaterialID, Materials.Title, Materials.PublishDate, Materials.Type, Materials.Condition, Materials.Language
+FROM            Materials INNER JOIN
+                         CheckoutMaterials ON Materials.MaterialID = CheckoutMaterials.MaterialID</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ProducersTableAdapter" GeneratorDataComponentClassName="ProducersTableAdapter" Name="Producers" UserDataComponentName="ProducersTableAdapter">
             <MainSource>
@@ -673,7 +713,7 @@ SELECT ProducerID, FName, LName FROM Producers WHERE (ProducerID = @ProducerID)<
   <xs:element name="Library_DBDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="Library_DBDataSet" msprop:Generator_UserDSName="Library_DBDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Authors" msprop:Generator_TableClassName="AuthorsDataTable" msprop:Generator_TableVarName="tableAuthors" msprop:Generator_TablePropName="Authors" msprop:Generator_RowDeletingName="AuthorsRowDeleting" msprop:Generator_RowChangingName="AuthorsRowChanging" msprop:Generator_RowEvHandlerName="AuthorsRowChangeEventHandler" msprop:Generator_RowDeletedName="AuthorsRowDeleted" msprop:Generator_UserTableName="Authors" msprop:Generator_RowChangedName="AuthorsRowChanged" msprop:Generator_RowEvArgName="AuthorsRowChangeEvent" msprop:Generator_RowClassName="AuthorsRow">
+        <xs:element name="Authors" msprop:Generator_TableClassName="AuthorsDataTable" msprop:Generator_TableVarName="tableAuthors" msprop:Generator_RowChangedName="AuthorsRowChanged" msprop:Generator_TablePropName="Authors" msprop:Generator_RowDeletingName="AuthorsRowDeleting" msprop:Generator_RowChangingName="AuthorsRowChanging" msprop:Generator_RowEvHandlerName="AuthorsRowChangeEventHandler" msprop:Generator_RowDeletedName="AuthorsRowDeleted" msprop:Generator_RowClassName="AuthorsRow" msprop:Generator_UserTableName="Authors" msprop:Generator_RowEvArgName="AuthorsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="AuthorID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnAuthorID" msprop:Generator_ColumnPropNameInRow="AuthorID" msprop:Generator_ColumnPropNameInTable="AuthorIDColumn" msprop:Generator_UserColumnName="AuthorID" type="xs:int" />
@@ -694,7 +734,7 @@ SELECT ProducerID, FName, LName FROM Producers WHERE (ProducerID = @ProducerID)<
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="CheckoutMaterials" msprop:Generator_TableClassName="CheckoutMaterialsDataTable" msprop:Generator_TableVarName="tableCheckoutMaterials" msprop:Generator_TablePropName="CheckoutMaterials" msprop:Generator_RowDeletingName="CheckoutMaterialsRowDeleting" msprop:Generator_RowChangingName="CheckoutMaterialsRowChanging" msprop:Generator_RowEvHandlerName="CheckoutMaterialsRowChangeEventHandler" msprop:Generator_RowDeletedName="CheckoutMaterialsRowDeleted" msprop:Generator_UserTableName="CheckoutMaterials" msprop:Generator_RowChangedName="CheckoutMaterialsRowChanged" msprop:Generator_RowEvArgName="CheckoutMaterialsRowChangeEvent" msprop:Generator_RowClassName="CheckoutMaterialsRow">
+        <xs:element name="CheckoutMaterials" msprop:Generator_TableClassName="CheckoutMaterialsDataTable" msprop:Generator_TableVarName="tableCheckoutMaterials" msprop:Generator_RowChangedName="CheckoutMaterialsRowChanged" msprop:Generator_TablePropName="CheckoutMaterials" msprop:Generator_RowDeletingName="CheckoutMaterialsRowDeleting" msprop:Generator_RowChangingName="CheckoutMaterialsRowChanging" msprop:Generator_RowEvHandlerName="CheckoutMaterialsRowChangeEventHandler" msprop:Generator_RowDeletedName="CheckoutMaterialsRowDeleted" msprop:Generator_RowClassName="CheckoutMaterialsRow" msprop:Generator_UserTableName="CheckoutMaterials" msprop:Generator_RowEvArgName="CheckoutMaterialsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="CheckOutID" msprop:Generator_ColumnVarNameInTable="columnCheckOutID" msprop:Generator_ColumnPropNameInRow="CheckOutID" msprop:Generator_ColumnPropNameInTable="CheckOutIDColumn" msprop:Generator_UserColumnName="CheckOutID" type="xs:int" />
@@ -702,7 +742,7 @@ SELECT ProducerID, FName, LName FROM Producers WHERE (ProducerID = @ProducerID)<
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="CheckOuts" msprop:Generator_TableClassName="CheckOutsDataTable" msprop:Generator_TableVarName="tableCheckOuts" msprop:Generator_TablePropName="CheckOuts" msprop:Generator_RowDeletingName="CheckOutsRowDeleting" msprop:Generator_RowChangingName="CheckOutsRowChanging" msprop:Generator_RowEvHandlerName="CheckOutsRowChangeEventHandler" msprop:Generator_RowDeletedName="CheckOutsRowDeleted" msprop:Generator_UserTableName="CheckOuts" msprop:Generator_RowChangedName="CheckOutsRowChanged" msprop:Generator_RowEvArgName="CheckOutsRowChangeEvent" msprop:Generator_RowClassName="CheckOutsRow">
+        <xs:element name="CheckOuts" msprop:Generator_TableClassName="CheckOutsDataTable" msprop:Generator_TableVarName="tableCheckOuts" msprop:Generator_RowChangedName="CheckOutsRowChanged" msprop:Generator_TablePropName="CheckOuts" msprop:Generator_RowDeletingName="CheckOutsRowDeleting" msprop:Generator_RowChangingName="CheckOutsRowChanging" msprop:Generator_RowEvHandlerName="CheckOutsRowChangeEventHandler" msprop:Generator_RowDeletedName="CheckOutsRowDeleted" msprop:Generator_RowClassName="CheckOutsRow" msprop:Generator_UserTableName="CheckOuts" msprop:Generator_RowEvArgName="CheckOutsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="CheckOutID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnCheckOutID" msprop:Generator_ColumnPropNameInRow="CheckOutID" msprop:Generator_ColumnPropNameInTable="CheckOutIDColumn" msprop:Generator_UserColumnName="CheckOutID" type="xs:int" />
@@ -712,7 +752,7 @@ SELECT ProducerID, FName, LName FROM Producers WHERE (ProducerID = @ProducerID)<
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="CheckOutsArchive" msprop:Generator_TableClassName="CheckOutsArchiveDataTable" msprop:Generator_TableVarName="tableCheckOutsArchive" msprop:Generator_TablePropName="CheckOutsArchive" msprop:Generator_RowDeletingName="CheckOutsArchiveRowDeleting" msprop:Generator_RowChangingName="CheckOutsArchiveRowChanging" msprop:Generator_RowEvHandlerName="CheckOutsArchiveRowChangeEventHandler" msprop:Generator_RowDeletedName="CheckOutsArchiveRowDeleted" msprop:Generator_UserTableName="CheckOutsArchive" msprop:Generator_RowChangedName="CheckOutsArchiveRowChanged" msprop:Generator_RowEvArgName="CheckOutsArchiveRowChangeEvent" msprop:Generator_RowClassName="CheckOutsArchiveRow">
+        <xs:element name="CheckOutsArchive" msprop:Generator_TableClassName="CheckOutsArchiveDataTable" msprop:Generator_TableVarName="tableCheckOutsArchive" msprop:Generator_RowChangedName="CheckOutsArchiveRowChanged" msprop:Generator_TablePropName="CheckOutsArchive" msprop:Generator_RowDeletingName="CheckOutsArchiveRowDeleting" msprop:Generator_RowChangingName="CheckOutsArchiveRowChanging" msprop:Generator_RowEvHandlerName="CheckOutsArchiveRowChangeEventHandler" msprop:Generator_RowDeletedName="CheckOutsArchiveRowDeleted" msprop:Generator_RowClassName="CheckOutsArchiveRow" msprop:Generator_UserTableName="CheckOutsArchive" msprop:Generator_RowEvArgName="CheckOutsArchiveRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="CheckOutID" msprop:Generator_ColumnVarNameInTable="columnCheckOutID" msprop:Generator_ColumnPropNameInRow="CheckOutID" msprop:Generator_ColumnPropNameInTable="CheckOutIDColumn" msprop:Generator_UserColumnName="CheckOutID" type="xs:int" />
@@ -723,7 +763,7 @@ SELECT ProducerID, FName, LName FROM Producers WHERE (ProducerID = @ProducerID)<
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="FeePayments" msprop:Generator_TableClassName="FeePaymentsDataTable" msprop:Generator_TableVarName="tableFeePayments" msprop:Generator_TablePropName="FeePayments" msprop:Generator_RowDeletingName="FeePaymentsRowDeleting" msprop:Generator_RowChangingName="FeePaymentsRowChanging" msprop:Generator_RowEvHandlerName="FeePaymentsRowChangeEventHandler" msprop:Generator_RowDeletedName="FeePaymentsRowDeleted" msprop:Generator_UserTableName="FeePayments" msprop:Generator_RowChangedName="FeePaymentsRowChanged" msprop:Generator_RowEvArgName="FeePaymentsRowChangeEvent" msprop:Generator_RowClassName="FeePaymentsRow">
+        <xs:element name="FeePayments" msprop:Generator_TableClassName="FeePaymentsDataTable" msprop:Generator_TableVarName="tableFeePayments" msprop:Generator_RowChangedName="FeePaymentsRowChanged" msprop:Generator_TablePropName="FeePayments" msprop:Generator_RowDeletingName="FeePaymentsRowDeleting" msprop:Generator_RowChangingName="FeePaymentsRowChanging" msprop:Generator_RowEvHandlerName="FeePaymentsRowChangeEventHandler" msprop:Generator_RowDeletedName="FeePaymentsRowDeleted" msprop:Generator_RowClassName="FeePaymentsRow" msprop:Generator_UserTableName="FeePayments" msprop:Generator_RowEvArgName="FeePaymentsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="PaymentID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnPaymentID" msprop:Generator_ColumnPropNameInRow="PaymentID" msprop:Generator_ColumnPropNameInTable="PaymentIDColumn" msprop:Generator_UserColumnName="PaymentID" type="xs:int" />
@@ -733,7 +773,7 @@ SELECT ProducerID, FName, LName FROM Producers WHERE (ProducerID = @ProducerID)<
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Genres" msprop:Generator_TableClassName="GenresDataTable" msprop:Generator_TableVarName="tableGenres" msprop:Generator_TablePropName="Genres" msprop:Generator_RowDeletingName="GenresRowDeleting" msprop:Generator_RowChangingName="GenresRowChanging" msprop:Generator_RowEvHandlerName="GenresRowChangeEventHandler" msprop:Generator_RowDeletedName="GenresRowDeleted" msprop:Generator_UserTableName="Genres" msprop:Generator_RowChangedName="GenresRowChanged" msprop:Generator_RowEvArgName="GenresRowChangeEvent" msprop:Generator_RowClassName="GenresRow">
+        <xs:element name="Genres" msprop:Generator_TableClassName="GenresDataTable" msprop:Generator_TableVarName="tableGenres" msprop:Generator_RowChangedName="GenresRowChanged" msprop:Generator_TablePropName="Genres" msprop:Generator_RowDeletingName="GenresRowDeleting" msprop:Generator_RowChangingName="GenresRowChanging" msprop:Generator_RowEvHandlerName="GenresRowChangeEventHandler" msprop:Generator_RowDeletedName="GenresRowDeleted" msprop:Generator_RowClassName="GenresRow" msprop:Generator_UserTableName="Genres" msprop:Generator_RowEvArgName="GenresRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="GenreID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnGenreID" msprop:Generator_ColumnPropNameInRow="GenreID" msprop:Generator_ColumnPropNameInTable="GenreIDColumn" msprop:Generator_UserColumnName="GenreID" type="xs:int" />
@@ -747,7 +787,7 @@ SELECT ProducerID, FName, LName FROM Producers WHERE (ProducerID = @ProducerID)<
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="LibraryAccounts" msprop:Generator_TableClassName="LibraryAccountsDataTable" msprop:Generator_TableVarName="tableLibraryAccounts" msprop:Generator_TablePropName="LibraryAccounts" msprop:Generator_RowDeletingName="LibraryAccountsRowDeleting" msprop:Generator_RowChangingName="LibraryAccountsRowChanging" msprop:Generator_RowEvHandlerName="LibraryAccountsRowChangeEventHandler" msprop:Generator_RowDeletedName="LibraryAccountsRowDeleted" msprop:Generator_UserTableName="LibraryAccounts" msprop:Generator_RowChangedName="LibraryAccountsRowChanged" msprop:Generator_RowEvArgName="LibraryAccountsRowChangeEvent" msprop:Generator_RowClassName="LibraryAccountsRow">
+        <xs:element name="LibraryAccounts" msprop:Generator_TableClassName="LibraryAccountsDataTable" msprop:Generator_TableVarName="tableLibraryAccounts" msprop:Generator_RowChangedName="LibraryAccountsRowChanged" msprop:Generator_TablePropName="LibraryAccounts" msprop:Generator_RowDeletingName="LibraryAccountsRowDeleting" msprop:Generator_RowChangingName="LibraryAccountsRowChanging" msprop:Generator_RowEvHandlerName="LibraryAccountsRowChangeEventHandler" msprop:Generator_RowDeletedName="LibraryAccountsRowDeleted" msprop:Generator_RowClassName="LibraryAccountsRow" msprop:Generator_UserTableName="LibraryAccounts" msprop:Generator_RowEvArgName="LibraryAccountsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="AccountID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnAccountID" msprop:Generator_ColumnPropNameInRow="AccountID" msprop:Generator_ColumnPropNameInTable="AccountIDColumn" msprop:Generator_UserColumnName="AccountID" type="xs:int" />
@@ -783,7 +823,7 @@ SELECT ProducerID, FName, LName FROM Producers WHERE (ProducerID = @ProducerID)<
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="MaterialAuthor" msprop:Generator_TableClassName="MaterialAuthorDataTable" msprop:Generator_TableVarName="tableMaterialAuthor" msprop:Generator_TablePropName="MaterialAuthor" msprop:Generator_RowDeletingName="MaterialAuthorRowDeleting" msprop:Generator_RowChangingName="MaterialAuthorRowChanging" msprop:Generator_RowEvHandlerName="MaterialAuthorRowChangeEventHandler" msprop:Generator_RowDeletedName="MaterialAuthorRowDeleted" msprop:Generator_UserTableName="MaterialAuthor" msprop:Generator_RowChangedName="MaterialAuthorRowChanged" msprop:Generator_RowEvArgName="MaterialAuthorRowChangeEvent" msprop:Generator_RowClassName="MaterialAuthorRow">
+        <xs:element name="MaterialAuthor" msprop:Generator_TableClassName="MaterialAuthorDataTable" msprop:Generator_TableVarName="tableMaterialAuthor" msprop:Generator_RowChangedName="MaterialAuthorRowChanged" msprop:Generator_TablePropName="MaterialAuthor" msprop:Generator_RowDeletingName="MaterialAuthorRowDeleting" msprop:Generator_RowChangingName="MaterialAuthorRowChanging" msprop:Generator_RowEvHandlerName="MaterialAuthorRowChangeEventHandler" msprop:Generator_RowDeletedName="MaterialAuthorRowDeleted" msprop:Generator_RowClassName="MaterialAuthorRow" msprop:Generator_UserTableName="MaterialAuthor" msprop:Generator_RowEvArgName="MaterialAuthorRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="MaterialID" msprop:Generator_ColumnVarNameInTable="columnMaterialID" msprop:Generator_ColumnPropNameInRow="MaterialID" msprop:Generator_ColumnPropNameInTable="MaterialIDColumn" msprop:Generator_UserColumnName="MaterialID" type="xs:int" />
@@ -791,7 +831,7 @@ SELECT ProducerID, FName, LName FROM Producers WHERE (ProducerID = @ProducerID)<
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="MaterialGenre" msprop:Generator_TableClassName="MaterialGenreDataTable" msprop:Generator_TableVarName="tableMaterialGenre" msprop:Generator_TablePropName="MaterialGenre" msprop:Generator_RowDeletingName="MaterialGenreRowDeleting" msprop:Generator_RowChangingName="MaterialGenreRowChanging" msprop:Generator_RowEvHandlerName="MaterialGenreRowChangeEventHandler" msprop:Generator_RowDeletedName="MaterialGenreRowDeleted" msprop:Generator_UserTableName="MaterialGenre" msprop:Generator_RowChangedName="MaterialGenreRowChanged" msprop:Generator_RowEvArgName="MaterialGenreRowChangeEvent" msprop:Generator_RowClassName="MaterialGenreRow">
+        <xs:element name="MaterialGenre" msprop:Generator_TableClassName="MaterialGenreDataTable" msprop:Generator_TableVarName="tableMaterialGenre" msprop:Generator_RowChangedName="MaterialGenreRowChanged" msprop:Generator_TablePropName="MaterialGenre" msprop:Generator_RowDeletingName="MaterialGenreRowDeleting" msprop:Generator_RowChangingName="MaterialGenreRowChanging" msprop:Generator_RowEvHandlerName="MaterialGenreRowChangeEventHandler" msprop:Generator_RowDeletedName="MaterialGenreRowDeleted" msprop:Generator_RowClassName="MaterialGenreRow" msprop:Generator_UserTableName="MaterialGenre" msprop:Generator_RowEvArgName="MaterialGenreRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="MaterialID" msprop:Generator_ColumnVarNameInTable="columnMaterialID" msprop:Generator_ColumnPropNameInRow="MaterialID" msprop:Generator_ColumnPropNameInTable="MaterialIDColumn" msprop:Generator_UserColumnName="MaterialID" type="xs:int" />
@@ -799,7 +839,7 @@ SELECT ProducerID, FName, LName FROM Producers WHERE (ProducerID = @ProducerID)<
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="MaterialProducer" msprop:Generator_TableClassName="MaterialProducerDataTable" msprop:Generator_TableVarName="tableMaterialProducer" msprop:Generator_TablePropName="MaterialProducer" msprop:Generator_RowDeletingName="MaterialProducerRowDeleting" msprop:Generator_RowChangingName="MaterialProducerRowChanging" msprop:Generator_RowEvHandlerName="MaterialProducerRowChangeEventHandler" msprop:Generator_RowDeletedName="MaterialProducerRowDeleted" msprop:Generator_UserTableName="MaterialProducer" msprop:Generator_RowChangedName="MaterialProducerRowChanged" msprop:Generator_RowEvArgName="MaterialProducerRowChangeEvent" msprop:Generator_RowClassName="MaterialProducerRow">
+        <xs:element name="MaterialProducer" msprop:Generator_TableClassName="MaterialProducerDataTable" msprop:Generator_TableVarName="tableMaterialProducer" msprop:Generator_RowChangedName="MaterialProducerRowChanged" msprop:Generator_TablePropName="MaterialProducer" msprop:Generator_RowDeletingName="MaterialProducerRowDeleting" msprop:Generator_RowChangingName="MaterialProducerRowChanging" msprop:Generator_RowEvHandlerName="MaterialProducerRowChangeEventHandler" msprop:Generator_RowDeletedName="MaterialProducerRowDeleted" msprop:Generator_RowClassName="MaterialProducerRow" msprop:Generator_UserTableName="MaterialProducer" msprop:Generator_RowEvArgName="MaterialProducerRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="MaterialID" msprop:Generator_ColumnVarNameInTable="columnMaterialID" msprop:Generator_ColumnPropNameInRow="MaterialID" msprop:Generator_ColumnPropNameInTable="MaterialIDColumn" msprop:Generator_UserColumnName="MaterialID" type="xs:int" />
@@ -807,7 +847,7 @@ SELECT ProducerID, FName, LName FROM Producers WHERE (ProducerID = @ProducerID)<
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Materials" msprop:Generator_TableClassName="MaterialsDataTable" msprop:Generator_TableVarName="tableMaterials" msprop:Generator_TablePropName="Materials" msprop:Generator_RowDeletingName="MaterialsRowDeleting" msprop:Generator_RowChangingName="MaterialsRowChanging" msprop:Generator_RowEvHandlerName="MaterialsRowChangeEventHandler" msprop:Generator_RowDeletedName="MaterialsRowDeleted" msprop:Generator_UserTableName="Materials" msprop:Generator_RowChangedName="MaterialsRowChanged" msprop:Generator_RowEvArgName="MaterialsRowChangeEvent" msprop:Generator_RowClassName="MaterialsRow">
+        <xs:element name="Materials" msprop:Generator_TableClassName="MaterialsDataTable" msprop:Generator_TableVarName="tableMaterials" msprop:Generator_RowChangedName="MaterialsRowChanged" msprop:Generator_TablePropName="Materials" msprop:Generator_RowDeletingName="MaterialsRowDeleting" msprop:Generator_RowChangingName="MaterialsRowChanging" msprop:Generator_RowEvHandlerName="MaterialsRowChangeEventHandler" msprop:Generator_RowDeletedName="MaterialsRowDeleted" msprop:Generator_RowClassName="MaterialsRow" msprop:Generator_UserTableName="Materials" msprop:Generator_RowEvArgName="MaterialsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="MaterialID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnMaterialID" msprop:Generator_ColumnPropNameInRow="MaterialID" msprop:Generator_ColumnPropNameInTable="MaterialIDColumn" msprop:Generator_UserColumnName="MaterialID" type="xs:int" />
@@ -843,7 +883,7 @@ SELECT ProducerID, FName, LName FROM Producers WHERE (ProducerID = @ProducerID)<
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Producers" msprop:Generator_TableClassName="ProducersDataTable" msprop:Generator_TableVarName="tableProducers" msprop:Generator_TablePropName="Producers" msprop:Generator_RowDeletingName="ProducersRowDeleting" msprop:Generator_RowChangingName="ProducersRowChanging" msprop:Generator_RowEvHandlerName="ProducersRowChangeEventHandler" msprop:Generator_RowDeletedName="ProducersRowDeleted" msprop:Generator_UserTableName="Producers" msprop:Generator_RowChangedName="ProducersRowChanged" msprop:Generator_RowEvArgName="ProducersRowChangeEvent" msprop:Generator_RowClassName="ProducersRow">
+        <xs:element name="Producers" msprop:Generator_TableClassName="ProducersDataTable" msprop:Generator_TableVarName="tableProducers" msprop:Generator_RowChangedName="ProducersRowChanged" msprop:Generator_TablePropName="Producers" msprop:Generator_RowDeletingName="ProducersRowDeleting" msprop:Generator_RowChangingName="ProducersRowChanging" msprop:Generator_RowEvHandlerName="ProducersRowChangeEventHandler" msprop:Generator_RowDeletedName="ProducersRowDeleted" msprop:Generator_RowClassName="ProducersRow" msprop:Generator_UserTableName="Producers" msprop:Generator_RowEvArgName="ProducersRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ProducerID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnProducerID" msprop:Generator_ColumnPropNameInRow="ProducerID" msprop:Generator_ColumnPropNameInTable="ProducerIDColumn" msprop:Generator_UserColumnName="ProducerID" type="xs:int" />
@@ -921,17 +961,17 @@ SELECT ProducerID, FName, LName FROM Producers WHERE (ProducerID = @ProducerID)<
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK__CheckoutM__Check__534D60F1" msdata:parent="CheckOuts" msdata:child="CheckoutMaterials" msdata:parentkey="CheckOutID" msdata:childkey="CheckOutID" msprop:Generator_UserChildTable="CheckoutMaterials" msprop:Generator_ChildPropName="GetCheckoutMaterialsRows" msprop:Generator_UserRelationName="FK__CheckoutM__Check__534D60F1" msprop:Generator_RelationVarName="relationFK__CheckoutM__Check__534D60F1" msprop:Generator_UserParentTable="CheckOuts" msprop:Generator_ParentPropName="CheckOutsRow" />
-      <msdata:Relationship name="FK__CheckoutM__Mater__5441852A" msdata:parent="Materials" msdata:child="CheckoutMaterials" msdata:parentkey="MaterialID" msdata:childkey="MaterialID" msprop:Generator_UserChildTable="CheckoutMaterials" msprop:Generator_ChildPropName="GetCheckoutMaterialsRows" msprop:Generator_UserRelationName="FK__CheckoutM__Mater__5441852A" msprop:Generator_RelationVarName="relationFK__CheckoutM__Mater__5441852A" msprop:Generator_UserParentTable="Materials" msprop:Generator_ParentPropName="MaterialsRow" />
-      <msdata:Relationship name="FK__CheckOuts__Accou__46E78A0C" msdata:parent="LibraryAccounts" msdata:child="CheckOuts" msdata:parentkey="AccountID" msdata:childkey="AccountID" msprop:Generator_UserChildTable="CheckOuts" msprop:Generator_ChildPropName="GetCheckOutsRows" msprop:Generator_UserRelationName="FK__CheckOuts__Accou__46E78A0C" msprop:Generator_RelationVarName="relationFK__CheckOuts__Accou__46E78A0C" msprop:Generator_UserParentTable="LibraryAccounts" msprop:Generator_ParentPropName="LibraryAccountsRow" />
-      <msdata:Relationship name="FK__CheckOuts__Accou__4BAC3F29" msdata:parent="LibraryAccounts" msdata:child="CheckOutsArchive" msdata:parentkey="AccountID" msdata:childkey="AccountID" msprop:Generator_UserChildTable="CheckOutsArchive" msprop:Generator_ChildPropName="GetCheckOutsArchiveRows" msprop:Generator_UserRelationName="FK__CheckOuts__Accou__4BAC3F29" msprop:Generator_RelationVarName="relationFK__CheckOuts__Accou__4BAC3F29" msprop:Generator_UserParentTable="LibraryAccounts" msprop:Generator_ParentPropName="LibraryAccountsRow" />
-      <msdata:Relationship name="FK__FeePaymen__Accou__4F7CD00D" msdata:parent="LibraryAccounts" msdata:child="FeePayments" msdata:parentkey="AccountID" msdata:childkey="AccountID" msprop:Generator_UserChildTable="FeePayments" msprop:Generator_ChildPropName="GetFeePaymentsRows" msprop:Generator_UserRelationName="FK__FeePaymen__Accou__4F7CD00D" msprop:Generator_RelationVarName="relationFK__FeePaymen__Accou__4F7CD00D" msprop:Generator_UserParentTable="LibraryAccounts" msprop:Generator_ParentPropName="LibraryAccountsRow" />
-      <msdata:Relationship name="FK__MaterialA__Autho__5BE2A6F2" msdata:parent="Authors" msdata:child="MaterialAuthor" msdata:parentkey="AuthorID" msdata:childkey="AuthorID" msprop:Generator_UserChildTable="MaterialAuthor" msprop:Generator_ChildPropName="GetMaterialAuthorRows" msprop:Generator_UserRelationName="FK__MaterialA__Autho__5BE2A6F2" msprop:Generator_ParentPropName="AuthorsRow" msprop:Generator_RelationVarName="relationFK__MaterialA__Autho__5BE2A6F2" msprop:Generator_UserParentTable="Authors" />
-      <msdata:Relationship name="FK__MaterialA__Mater__5AEE82B9" msdata:parent="Materials" msdata:child="MaterialAuthor" msdata:parentkey="MaterialID" msdata:childkey="MaterialID" msprop:Generator_UserChildTable="MaterialAuthor" msprop:Generator_ChildPropName="GetMaterialAuthorRows" msprop:Generator_UserRelationName="FK__MaterialA__Mater__5AEE82B9" msprop:Generator_RelationVarName="relationFK__MaterialA__Mater__5AEE82B9" msprop:Generator_UserParentTable="Materials" msprop:Generator_ParentPropName="MaterialsRow" />
-      <msdata:Relationship name="FK__MaterialG__Genre__5812160E" msdata:parent="Genres" msdata:child="MaterialGenre" msdata:parentkey="GenreID" msdata:childkey="GenreID" msprop:Generator_UserChildTable="MaterialGenre" msprop:Generator_ChildPropName="GetMaterialGenreRows" msprop:Generator_UserRelationName="FK__MaterialG__Genre__5812160E" msprop:Generator_ParentPropName="GenresRow" msprop:Generator_RelationVarName="relationFK__MaterialG__Genre__5812160E" msprop:Generator_UserParentTable="Genres" />
-      <msdata:Relationship name="FK__MaterialG__Mater__571DF1D5" msdata:parent="Materials" msdata:child="MaterialGenre" msdata:parentkey="MaterialID" msdata:childkey="MaterialID" msprop:Generator_UserChildTable="MaterialGenre" msprop:Generator_ChildPropName="GetMaterialGenreRows" msprop:Generator_UserRelationName="FK__MaterialG__Mater__571DF1D5" msprop:Generator_RelationVarName="relationFK__MaterialG__Mater__571DF1D5" msprop:Generator_UserParentTable="Materials" msprop:Generator_ParentPropName="MaterialsRow" />
-      <msdata:Relationship name="FK__MaterialP__Mater__5EBF139D" msdata:parent="Materials" msdata:child="MaterialProducer" msdata:parentkey="MaterialID" msdata:childkey="MaterialID" msprop:Generator_UserChildTable="MaterialProducer" msprop:Generator_ChildPropName="GetMaterialProducerRows" msprop:Generator_UserRelationName="FK__MaterialP__Mater__5EBF139D" msprop:Generator_RelationVarName="relationFK__MaterialP__Mater__5EBF139D" msprop:Generator_UserParentTable="Materials" msprop:Generator_ParentPropName="MaterialsRow" />
-      <msdata:Relationship name="FK__MaterialP__Produ__5FB337D6" msdata:parent="Producers" msdata:child="MaterialProducer" msdata:parentkey="ProducerID" msdata:childkey="ProducerID" msprop:Generator_UserChildTable="MaterialProducer" msprop:Generator_ChildPropName="GetMaterialProducerRows" msprop:Generator_UserRelationName="FK__MaterialP__Produ__5FB337D6" msprop:Generator_RelationVarName="relationFK__MaterialP__Produ__5FB337D6" msprop:Generator_UserParentTable="Producers" msprop:Generator_ParentPropName="ProducersRow" />
+      <msdata:Relationship name="FK__CheckoutM__Check__534D60F1" msdata:parent="CheckOuts" msdata:child="CheckoutMaterials" msdata:parentkey="CheckOutID" msdata:childkey="CheckOutID" msprop:Generator_UserChildTable="CheckoutMaterials" msprop:Generator_ChildPropName="GetCheckoutMaterialsRows" msprop:Generator_UserRelationName="FK__CheckoutM__Check__534D60F1" msprop:Generator_ParentPropName="CheckOutsRow" msprop:Generator_RelationVarName="relationFK__CheckoutM__Check__534D60F1" msprop:Generator_UserParentTable="CheckOuts" />
+      <msdata:Relationship name="FK__CheckoutM__Mater__5441852A" msdata:parent="Materials" msdata:child="CheckoutMaterials" msdata:parentkey="MaterialID" msdata:childkey="MaterialID" msprop:Generator_UserChildTable="CheckoutMaterials" msprop:Generator_ChildPropName="GetCheckoutMaterialsRows" msprop:Generator_UserRelationName="FK__CheckoutM__Mater__5441852A" msprop:Generator_ParentPropName="MaterialsRow" msprop:Generator_RelationVarName="relationFK__CheckoutM__Mater__5441852A" msprop:Generator_UserParentTable="Materials" />
+      <msdata:Relationship name="FK__CheckOuts__Accou__46E78A0C" msdata:parent="LibraryAccounts" msdata:child="CheckOuts" msdata:parentkey="AccountID" msdata:childkey="AccountID" msprop:Generator_UserChildTable="CheckOuts" msprop:Generator_ChildPropName="GetCheckOutsRows" msprop:Generator_UserRelationName="FK__CheckOuts__Accou__46E78A0C" msprop:Generator_ParentPropName="LibraryAccountsRow" msprop:Generator_RelationVarName="relationFK__CheckOuts__Accou__46E78A0C" msprop:Generator_UserParentTable="LibraryAccounts" />
+      <msdata:Relationship name="FK__CheckOuts__Accou__4BAC3F29" msdata:parent="LibraryAccounts" msdata:child="CheckOutsArchive" msdata:parentkey="AccountID" msdata:childkey="AccountID" msprop:Generator_UserChildTable="CheckOutsArchive" msprop:Generator_ChildPropName="GetCheckOutsArchiveRows" msprop:Generator_UserRelationName="FK__CheckOuts__Accou__4BAC3F29" msprop:Generator_ParentPropName="LibraryAccountsRow" msprop:Generator_RelationVarName="relationFK__CheckOuts__Accou__4BAC3F29" msprop:Generator_UserParentTable="LibraryAccounts" />
+      <msdata:Relationship name="FK__FeePaymen__Accou__4F7CD00D" msdata:parent="LibraryAccounts" msdata:child="FeePayments" msdata:parentkey="AccountID" msdata:childkey="AccountID" msprop:Generator_UserChildTable="FeePayments" msprop:Generator_ChildPropName="GetFeePaymentsRows" msprop:Generator_UserRelationName="FK__FeePaymen__Accou__4F7CD00D" msprop:Generator_ParentPropName="LibraryAccountsRow" msprop:Generator_RelationVarName="relationFK__FeePaymen__Accou__4F7CD00D" msprop:Generator_UserParentTable="LibraryAccounts" />
+      <msdata:Relationship name="FK__MaterialA__Autho__5BE2A6F2" msdata:parent="Authors" msdata:child="MaterialAuthor" msdata:parentkey="AuthorID" msdata:childkey="AuthorID" msprop:Generator_UserChildTable="MaterialAuthor" msprop:Generator_ChildPropName="GetMaterialAuthorRows" msprop:Generator_UserRelationName="FK__MaterialA__Autho__5BE2A6F2" msprop:Generator_RelationVarName="relationFK__MaterialA__Autho__5BE2A6F2" msprop:Generator_UserParentTable="Authors" msprop:Generator_ParentPropName="AuthorsRow" />
+      <msdata:Relationship name="FK__MaterialA__Mater__5AEE82B9" msdata:parent="Materials" msdata:child="MaterialAuthor" msdata:parentkey="MaterialID" msdata:childkey="MaterialID" msprop:Generator_UserChildTable="MaterialAuthor" msprop:Generator_ChildPropName="GetMaterialAuthorRows" msprop:Generator_UserRelationName="FK__MaterialA__Mater__5AEE82B9" msprop:Generator_ParentPropName="MaterialsRow" msprop:Generator_RelationVarName="relationFK__MaterialA__Mater__5AEE82B9" msprop:Generator_UserParentTable="Materials" />
+      <msdata:Relationship name="FK__MaterialG__Genre__5812160E" msdata:parent="Genres" msdata:child="MaterialGenre" msdata:parentkey="GenreID" msdata:childkey="GenreID" msprop:Generator_UserChildTable="MaterialGenre" msprop:Generator_ChildPropName="GetMaterialGenreRows" msprop:Generator_UserRelationName="FK__MaterialG__Genre__5812160E" msprop:Generator_RelationVarName="relationFK__MaterialG__Genre__5812160E" msprop:Generator_UserParentTable="Genres" msprop:Generator_ParentPropName="GenresRow" />
+      <msdata:Relationship name="FK__MaterialG__Mater__571DF1D5" msdata:parent="Materials" msdata:child="MaterialGenre" msdata:parentkey="MaterialID" msdata:childkey="MaterialID" msprop:Generator_UserChildTable="MaterialGenre" msprop:Generator_ChildPropName="GetMaterialGenreRows" msprop:Generator_UserRelationName="FK__MaterialG__Mater__571DF1D5" msprop:Generator_ParentPropName="MaterialsRow" msprop:Generator_RelationVarName="relationFK__MaterialG__Mater__571DF1D5" msprop:Generator_UserParentTable="Materials" />
+      <msdata:Relationship name="FK__MaterialP__Mater__5EBF139D" msdata:parent="Materials" msdata:child="MaterialProducer" msdata:parentkey="MaterialID" msdata:childkey="MaterialID" msprop:Generator_UserChildTable="MaterialProducer" msprop:Generator_ChildPropName="GetMaterialProducerRows" msprop:Generator_UserRelationName="FK__MaterialP__Mater__5EBF139D" msprop:Generator_ParentPropName="MaterialsRow" msprop:Generator_RelationVarName="relationFK__MaterialP__Mater__5EBF139D" msprop:Generator_UserParentTable="Materials" />
+      <msdata:Relationship name="FK__MaterialP__Produ__5FB337D6" msdata:parent="Producers" msdata:child="MaterialProducer" msdata:parentkey="ProducerID" msdata:childkey="ProducerID" msprop:Generator_UserChildTable="MaterialProducer" msprop:Generator_ChildPropName="GetMaterialProducerRows" msprop:Generator_UserRelationName="FK__MaterialP__Produ__5FB337D6" msprop:Generator_ParentPropName="ProducersRow" msprop:Generator_RelationVarName="relationFK__MaterialP__Produ__5FB337D6" msprop:Generator_UserParentTable="Producers" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>
