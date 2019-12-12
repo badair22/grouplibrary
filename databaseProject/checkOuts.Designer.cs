@@ -31,17 +31,16 @@
             this.components = new System.ComponentModel.Container();
             this.homeButton = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.library_DBDataSet = new databaseProject.Library_DBDataSet();
             this.checkOutsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.library_DBDataSet = new databaseProject.Library_DBDataSet();
             this.checkOutsTableAdapter = new databaseProject.Library_DBDataSetTableAdapters.CheckOutsTableAdapter();
             this.checkOutIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.accountIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.checkOutDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dueDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.materialIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.library_DBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkOutsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.library_DBDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // homeButton
@@ -62,23 +61,22 @@
             this.checkOutIDDataGridViewTextBoxColumn,
             this.accountIDDataGridViewTextBoxColumn,
             this.checkOutDateDataGridViewTextBoxColumn,
-            this.dueDateDataGridViewTextBoxColumn,
-            this.materialIDDataGridViewTextBoxColumn});
+            this.dueDateDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.checkOutsBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(136, 26);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(540, 239);
+            this.dataGridView1.Size = new System.Drawing.Size(442, 239);
             this.dataGridView1.TabIndex = 1;
-            // 
-            // library_DBDataSet
-            // 
-            this.library_DBDataSet.DataSetName = "Library_DBDataSet";
-            this.library_DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // checkOutsBindingSource
             // 
             this.checkOutsBindingSource.DataMember = "CheckOuts";
             this.checkOutsBindingSource.DataSource = this.library_DBDataSet;
+            // 
+            // library_DBDataSet
+            // 
+            this.library_DBDataSet.DataSetName = "Library_DBDataSet";
+            this.library_DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // checkOutsTableAdapter
             // 
@@ -109,12 +107,6 @@
             this.dueDateDataGridViewTextBoxColumn.HeaderText = "DueDate";
             this.dueDateDataGridViewTextBoxColumn.Name = "dueDateDataGridViewTextBoxColumn";
             // 
-            // materialIDDataGridViewTextBoxColumn
-            // 
-            this.materialIDDataGridViewTextBoxColumn.DataPropertyName = "MaterialID";
-            this.materialIDDataGridViewTextBoxColumn.HeaderText = "MaterialID";
-            this.materialIDDataGridViewTextBoxColumn.Name = "materialIDDataGridViewTextBoxColumn";
-            // 
             // checkOuts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -126,8 +118,8 @@
             this.Text = "Checked Out Materials";
             this.Load += new System.EventHandler(this.checkOuts_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.library_DBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkOutsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.library_DBDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -143,6 +135,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn accountIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn checkOutDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dueDateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn materialIDDataGridViewTextBoxColumn;
     }
 }
