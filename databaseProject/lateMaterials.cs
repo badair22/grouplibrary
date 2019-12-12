@@ -16,5 +16,12 @@ namespace databaseProject
         {
             InitializeComponent();
         }
+
+        private void homeButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            homePage homePage = new homePage();
+            homePage.Show();
+        }
     }
 }

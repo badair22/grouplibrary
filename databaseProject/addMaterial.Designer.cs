@@ -187,6 +187,7 @@
             this.homeButton.TabIndex = 16;
             this.homeButton.Text = "Home";
             this.homeButton.UseVisualStyleBackColor = true;
+            this.homeButton.Click += new System.EventHandler(this.homeButton_Click);
             // 
             // addButton
             // 
