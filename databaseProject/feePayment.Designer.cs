@@ -100,7 +100,7 @@
             this.Controls.Add(this.submitButton);
             this.Controls.Add(this.homeButton);
             this.Name = "feePayment";
-            this.Text = "feePayment";
+            this.Text = "Fee Payment";
             this.ResumeLayout(false);
             this.PerformLayout();
 

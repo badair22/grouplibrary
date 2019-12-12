@@ -202,7 +202,7 @@
             this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.titleCombobox);
             this.Name = "checkoutMaterial";
-            this.Text = "checkoutMaterial";
+            this.Text = "Checkout Materials";
             this.Load += new System.EventHandler(this.checkoutMaterial_Load);
             ((System.ComponentModel.ISupportInitialize)(this.materialsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.library_DBDataSet)).EndInit();

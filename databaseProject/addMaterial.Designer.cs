@@ -290,7 +290,7 @@
             this.Controls.Add(this.publishLabel);
             this.Controls.Add(this.titleLabel);
             this.Name = "addMaterial";
-            this.Text = "addMaterial";
+            this.Text = "Add a Material";
             this.Load += new System.EventHandler(this.addMaterial_Load);
             ((System.ComponentModel.ISupportInitialize)(this.genresBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.library_DBDataSet)).EndInit();

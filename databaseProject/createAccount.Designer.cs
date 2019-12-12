@@ -140,7 +140,7 @@
             this.Controls.Add(this.lastLabel);
             this.Controls.Add(this.firstLabel);
             this.Name = "createAccount";
-            this.Text = "createAccount";
+            this.Text = "Create Library Account";
             this.ResumeLayout(false);
             this.PerformLayout();
 

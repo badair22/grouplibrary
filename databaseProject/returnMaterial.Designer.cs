@@ -126,7 +126,7 @@
             this.Controls.Add(this.conditionLabel);
             this.Controls.Add(this.materialLabel);
             this.Name = "returnMaterial";
-            this.Text = "returnMaterial";
+            this.Text = "Return Materials";
             this.ResumeLayout(false);
             this.PerformLayout();
 

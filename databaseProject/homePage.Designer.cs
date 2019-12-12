@@ -41,6 +41,19 @@
             this.btnCheckout = new System.Windows.Forms.Button();
             this.btnPayment = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.outstandingButton = new System.Windows.Forms.Button();
+            this.viewMaterialsButton = new System.Windows.Forms.Button();
+            this.lateMaterialsButton = new System.Windows.Forms.Button();
+            this.feesOwedButton = new System.Windows.Forms.Button();
+            this.allAccountsButton = new System.Windows.Forms.Button();
+            this.checkOutsButton = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // welcomeLabel
@@ -167,11 +180,143 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(294, 433);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(188, 31);
+            this.label7.TabIndex = 13;
+            this.label7.Text = "View Reports";
+            // 
+            // outstandingButton
+            // 
+            this.outstandingButton.Location = new System.Drawing.Point(75, 669);
+            this.outstandingButton.Name = "outstandingButton";
+            this.outstandingButton.Size = new System.Drawing.Size(75, 23);
+            this.outstandingButton.TabIndex = 14;
+            this.outstandingButton.Text = "View Report";
+            this.outstandingButton.UseVisualStyleBackColor = true;
+            // 
+            // viewMaterialsButton
+            // 
+            this.viewMaterialsButton.Location = new System.Drawing.Point(75, 555);
+            this.viewMaterialsButton.Name = "viewMaterialsButton";
+            this.viewMaterialsButton.Size = new System.Drawing.Size(75, 23);
+            this.viewMaterialsButton.TabIndex = 14;
+            this.viewMaterialsButton.Text = "View Report";
+            this.viewMaterialsButton.UseVisualStyleBackColor = true;
+            this.viewMaterialsButton.Click += new System.EventHandler(this.viewMaterialsButton_Click);
+            // 
+            // lateMaterialsButton
+            // 
+            this.lateMaterialsButton.Location = new System.Drawing.Point(355, 555);
+            this.lateMaterialsButton.Name = "lateMaterialsButton";
+            this.lateMaterialsButton.Size = new System.Drawing.Size(75, 23);
+            this.lateMaterialsButton.TabIndex = 14;
+            this.lateMaterialsButton.Text = "View Report";
+            this.lateMaterialsButton.UseVisualStyleBackColor = true;
+            // 
+            // feesOwedButton
+            // 
+            this.feesOwedButton.Location = new System.Drawing.Point(619, 555);
+            this.feesOwedButton.Name = "feesOwedButton";
+            this.feesOwedButton.Size = new System.Drawing.Size(75, 23);
+            this.feesOwedButton.TabIndex = 14;
+            this.feesOwedButton.Text = "View Report";
+            this.feesOwedButton.UseVisualStyleBackColor = true;
+            // 
+            // allAccountsButton
+            // 
+            this.allAccountsButton.Location = new System.Drawing.Point(355, 669);
+            this.allAccountsButton.Name = "allAccountsButton";
+            this.allAccountsButton.Size = new System.Drawing.Size(75, 23);
+            this.allAccountsButton.TabIndex = 14;
+            this.allAccountsButton.Text = "View Report";
+            this.allAccountsButton.UseVisualStyleBackColor = true;
+            // 
+            // checkOutsButton
+            // 
+            this.checkOutsButton.Location = new System.Drawing.Point(619, 669);
+            this.checkOutsButton.Name = "checkOutsButton";
+            this.checkOutsButton.Size = new System.Drawing.Size(75, 23);
+            this.checkOutsButton.TabIndex = 14;
+            this.checkOutsButton.Text = "View Report";
+            this.checkOutsButton.UseVisualStyleBackColor = true;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(72, 492);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(63, 13);
+            this.label8.TabIndex = 15;
+            this.label8.Text = "All Materials";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(357, 492);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(73, 13);
+            this.label9.TabIndex = 16;
+            this.label9.Text = "Late Materials";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(621, 492);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(61, 13);
+            this.label10.TabIndex = 17;
+            this.label10.Text = "Fees Owed";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(69, 622);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(90, 13);
+            this.label11.TabIndex = 18;
+            this.label11.Text = "Outstanding Fees";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(357, 622);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(66, 13);
+            this.label12.TabIndex = 19;
+            this.label12.Text = "All Accounts";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(607, 622);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(115, 13);
+            this.label13.TabIndex = 20;
+            this.label13.Text = "Checked Out Materials";
+            // 
             // homePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 561);
+            this.ClientSize = new System.Drawing.Size(800, 774);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.checkOutsButton);
+            this.Controls.Add(this.allAccountsButton);
+            this.Controls.Add(this.feesOwedButton);
+            this.Controls.Add(this.lateMaterialsButton);
+            this.Controls.Add(this.viewMaterialsButton);
+            this.Controls.Add(this.outstandingButton);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnPayment);
             this.Controls.Add(this.btnCheckout);
@@ -207,6 +352,19 @@
         private System.Windows.Forms.Button btnCheckout;
         private System.Windows.Forms.Button btnPayment;
         private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button outstandingButton;
+        private System.Windows.Forms.Button viewMaterialsButton;
+        private System.Windows.Forms.Button lateMaterialsButton;
+        private System.Windows.Forms.Button feesOwedButton;
+        private System.Windows.Forms.Button allAccountsButton;
+        private System.Windows.Forms.Button checkOutsButton;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
     }
 }
 

@@ -132,11 +132,29 @@
     <Compile Include="addMaterial.Designer.cs">
       <DependentUpon>addMaterial.cs</DependentUpon>
     </Compile>
+    <Compile Include="allAccounts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="allAccounts.Designer.cs">
+      <DependentUpon>allAccounts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="allMaterials.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="allMaterials.Designer.cs">
+      <DependentUpon>allMaterials.cs</DependentUpon>
+    </Compile>
     <Compile Include="checkoutMaterial.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="checkoutMaterial.Designer.cs">
       <DependentUpon>checkoutMaterial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="checkOuts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="checkOuts.Designer.cs">
+      <DependentUpon>checkOuts.cs</DependentUpon>
     </Compile>
     <Compile Include="createAccount.cs">
       <SubType>Form</SubType>
@@ -150,16 +168,34 @@
     <Compile Include="feePayment.Designer.cs">
       <DependentUpon>feePayment.cs</DependentUpon>
     </Compile>
+    <Compile Include="feesOwed.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="feesOwed.Designer.cs">
+      <DependentUpon>feesOwed.cs</DependentUpon>
+    </Compile>
     <Compile Include="homePage.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="homePage.Designer.cs">
       <DependentUpon>homePage.cs</DependentUpon>
     </Compile>
+    <Compile Include="lateMaterials.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="lateMaterials.Designer.cs">
+      <DependentUpon>lateMaterials.cs</DependentUpon>
+    </Compile>
     <Compile Include="Library_DBDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Library_DBDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="outstandingFees.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="outstandingFees.Designer.cs">
+      <DependentUpon>outstandingFees.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -178,8 +214,17 @@
     <EmbeddedResource Include="addMaterial.resx">
       <DependentUpon>addMaterial.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="allAccounts.resx">
+      <DependentUpon>allAccounts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="allMaterials.resx">
+      <DependentUpon>allMaterials.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="checkoutMaterial.resx">
       <DependentUpon>checkoutMaterial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="checkOuts.resx">
+      <DependentUpon>checkOuts.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="createAccount.resx">
       <DependentUpon>createAccount.cs</DependentUpon>
@@ -187,8 +232,17 @@
     <EmbeddedResource Include="feePayment.resx">
       <DependentUpon>feePayment.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="feesOwed.resx">
+      <DependentUpon>feesOwed.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="homePage.resx">
       <DependentUpon>homePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lateMaterials.resx">
+      <DependentUpon>lateMaterials.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="outstandingFees.resx">
+      <DependentUpon>outstandingFees.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

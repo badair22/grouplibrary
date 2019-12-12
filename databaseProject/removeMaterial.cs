@@ -29,14 +29,22 @@ namespace databaseProject
                 con.Open();
                 SqlCommand cmd = con.CreateCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "delete from CheckoutMaterials where MaterialID='" + removeTextbox.Text + "'";
+                cmd.CommandText = "delete from CheckoutMaterials where MaterialID='" + input + "'";
                 cmd.ExecuteNonQuery();
                 con.Close();
                 if (int.TryParse(input, out num) && input != null)
                 {
                     con.Open();
                     cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = "delete from Materials where MaterialID='" + removeTextbox.Text + "'";
+                    cmd.CommandText = "delete from Checkouts where MaterialID='" + input + "'";
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+                if (int.TryParse(input, out num) && input != null)
+                {
+                    con.Open();
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = "delete from Materials where MaterialID='" + input + "'";
                     cmd.ExecuteNonQuery();
                     con.Close();
                     MessageBox.Show("Record removed successfully.");

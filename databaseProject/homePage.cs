@@ -58,5 +58,12 @@ namespace databaseProject
             addMaterial addMaterial = new addMaterial();
             addMaterial.Show();
         }
+
+        private void viewMaterialsButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            allMaterials allMaterials = new allMaterials();
+            allMaterials.Show();
+        }
     }
 }
