@@ -28,13 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.homeButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
+            // 
+            // homeButton
+            // 
+            this.homeButton.Location = new System.Drawing.Point(368, 346);
+            this.homeButton.Name = "homeButton";
+            this.homeButton.Size = new System.Drawing.Size(75, 23);
+            this.homeButton.TabIndex = 0;
+            this.homeButton.Text = "Home";
+            this.homeButton.UseVisualStyleBackColor = true;
             // 
             // allMaterials
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.homeButton);
             this.Name = "allMaterials";
             this.Text = "All Materials";
             this.ResumeLayout(false);
@@ -42,5 +53,7 @@
         }
 
         #endregion
+
+        private System.Windows.Forms.Button homeButton;
     }
 }

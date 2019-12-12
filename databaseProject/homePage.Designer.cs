@@ -198,6 +198,7 @@
             this.outstandingButton.TabIndex = 14;
             this.outstandingButton.Text = "View Report";
             this.outstandingButton.UseVisualStyleBackColor = true;
+            this.outstandingButton.Click += new System.EventHandler(this.outstandingButton_Click);
             // 
             // viewMaterialsButton
             // 
@@ -217,6 +218,7 @@
             this.lateMaterialsButton.TabIndex = 14;
             this.lateMaterialsButton.Text = "View Report";
             this.lateMaterialsButton.UseVisualStyleBackColor = true;
+            this.lateMaterialsButton.Click += new System.EventHandler(this.lateMaterialsButton_Click);
             // 
             // feesOwedButton
             // 
@@ -226,6 +228,7 @@
             this.feesOwedButton.TabIndex = 14;
             this.feesOwedButton.Text = "View Report";
             this.feesOwedButton.UseVisualStyleBackColor = true;
+            this.feesOwedButton.Click += new System.EventHandler(this.feesOwedButton_Click);
             // 
             // allAccountsButton
             // 
@@ -235,6 +238,7 @@
             this.allAccountsButton.TabIndex = 14;
             this.allAccountsButton.Text = "View Report";
             this.allAccountsButton.UseVisualStyleBackColor = true;
+            this.allAccountsButton.Click += new System.EventHandler(this.allAccountsButton_Click);
             // 
             // checkOutsButton
             // 
@@ -244,6 +248,7 @@
             this.checkOutsButton.TabIndex = 14;
             this.checkOutsButton.Text = "View Report";
             this.checkOutsButton.UseVisualStyleBackColor = true;
+            this.checkOutsButton.Click += new System.EventHandler(this.checkOutsButton_Click);
             // 
             // label8
             // 

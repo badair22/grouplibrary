@@ -65,5 +65,40 @@ namespace databaseProject
             allMaterials allMaterials = new allMaterials();
             allMaterials.Show();
         }
+
+        private void lateMaterialsButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            lateMaterials lateMaterials = new lateMaterials();
+            lateMaterials.Show();
+        }
+
+        private void feesOwedButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            feesOwed feesOwed = new feesOwed();
+            feesOwed.Show();
+        }
+
+        private void outstandingButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            outstandingFees outstandingFees = new outstandingFees();
+            outstandingFees.Show();
+        }
+
+        private void allAccountsButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            allAccounts allAccounts = new allAccounts();
+            allAccounts.Show();
+        }
+
+        private void checkOutsButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            checkOuts checkOuts = new checkOuts();
+            checkOuts.Show();
+        }
     }
 }
