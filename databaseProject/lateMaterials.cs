@@ -23,5 +23,25 @@ namespace databaseProject
             homePage homePage = new homePage();
             homePage.Show();
         }
+
+        private void lateMaterials_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'library_DBDataSet.CheckOuts' table. You can move, or remove it, as needed.
+            this.checkOutsTableAdapter.Fill(this.library_DBDataSet.CheckOuts);
+
+        }
+
+        private void fillByToolStripButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.checkOutsTableAdapter.FillBy(this.library_DBDataSet.CheckOuts);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
+        }
     }
 }

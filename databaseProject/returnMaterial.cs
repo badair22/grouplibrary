@@ -26,7 +26,7 @@ namespace databaseProject
             string input3 = checkoutTextbox.Text;
             int num = -1;
 
-            if (int.TryParse(input, out num) && input != null && input2 != null && int.TryParse(input3, out num))
+            if (int.TryParse(input, out num) && input != null)
             {
                 con.Open();
                 SqlCommand cmd = con.CreateCommand();
@@ -34,11 +34,11 @@ namespace databaseProject
                 cmd.CommandText = "update Materials set Condition='" + conditionCombobox.Text + "' where MaterialID='" + materialTextbox.Text + "'";
                 cmd.ExecuteNonQuery();
                 con.Close();
-                if (int.TryParse(input, out num) && input != null && input2 != null && int.TryParse(input3, out num))
+                if (int.TryParse(input, out num) && input != null)
                 {
                     con.Open();
                     cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = "delete from CheckoutMaterials where CheckoutID='" + checkoutTextbox.Text + "' and MaterialID='" + materialTextbox.Text + "'";
+                    cmd.CommandText = "delete from CheckOuts where CheckoutID='" + checkoutTextbox.Text + "'";
                     cmd.ExecuteNonQuery();
                     con.Close();
                     MessageBox.Show("Return Successful.");

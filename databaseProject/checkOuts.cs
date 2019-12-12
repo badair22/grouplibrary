@@ -26,6 +26,9 @@ namespace databaseProject
 
         private void checkOuts_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'library_DBDataSet.CheckOuts' table. You can move, or remove it, as needed.
+            this.checkOutsTableAdapter.Fill(this.library_DBDataSet.CheckOuts);
+
 
         }
     }

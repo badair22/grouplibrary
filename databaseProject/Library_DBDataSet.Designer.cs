@@ -1323,6 +1323,8 @@ namespace databaseProject {
             
             private global::System.Data.DataColumn columnDueDate;
             
+            private global::System.Data.DataColumn columnMaterialID;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public CheckOutsDataTable() {
@@ -1390,6 +1392,14 @@ namespace databaseProject {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn MaterialIDColumn {
+                get {
+                    return this.columnMaterialID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1425,13 +1435,14 @@ namespace databaseProject {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public CheckOutsRow AddCheckOutsRow(LibraryAccountsRow parentLibraryAccountsRowByFK__CheckOuts__Accou__46E78A0C, System.DateTime CheckOutDate, System.DateTime DueDate) {
+            public CheckOutsRow AddCheckOutsRow(LibraryAccountsRow parentLibraryAccountsRowByFK__CheckOuts__Accou__46E78A0C, System.DateTime CheckOutDate, System.DateTime DueDate, string MaterialID) {
                 CheckOutsRow rowCheckOutsRow = ((CheckOutsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         null,
                         CheckOutDate,
-                        DueDate};
+                        DueDate,
+                        MaterialID};
                 if ((parentLibraryAccountsRowByFK__CheckOuts__Accou__46E78A0C != null)) {
                     columnValuesArray[1] = parentLibraryAccountsRowByFK__CheckOuts__Accou__46E78A0C[0];
                 }
@@ -1468,6 +1479,7 @@ namespace databaseProject {
                 this.columnAccountID = base.Columns["AccountID"];
                 this.columnCheckOutDate = base.Columns["CheckOutDate"];
                 this.columnDueDate = base.Columns["DueDate"];
+                this.columnMaterialID = base.Columns["MaterialID"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1481,6 +1493,8 @@ namespace databaseProject {
                 base.Columns.Add(this.columnCheckOutDate);
                 this.columnDueDate = new global::System.Data.DataColumn("DueDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDueDate);
+                this.columnMaterialID = new global::System.Data.DataColumn("MaterialID", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMaterialID);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnCheckOutID}, true));
                 this.columnCheckOutID.AutoIncrement = true;
@@ -4519,6 +4533,22 @@ namespace databaseProject {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string MaterialID {
+                get {
+                    try {
+                        return ((string)(this[this.tableCheckOuts.MaterialIDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'MaterialID\' in table \'CheckOuts\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCheckOuts.MaterialIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public LibraryAccountsRow LibraryAccountsRow {
                 get {
                     return ((LibraryAccountsRow)(this.GetParentRow(this.Table.ParentRelations["FK__CheckOuts__Accou__46E78A0C"])));
@@ -4526,6 +4556,18 @@ namespace databaseProject {
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK__CheckOuts__Accou__46E78A0C"]);
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsMaterialIDNull() {
+                return this.IsNull(this.tableCheckOuts.MaterialIDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetMaterialIDNull() {
+                this[this.tableCheckOuts.MaterialIDColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6495,11 +6537,16 @@ SELECT CheckOutID, AccountID, CheckOutDate, DueDate FROM CheckOuts WHERE (CheckO
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT CheckOutID, AccountID, CheckOutDate, DueDate FROM dbo.CheckOuts";
+            this._commandCollection[0].CommandText = "SELECT CheckOutID, AccountID, CheckOutDate, DueDate FROM CheckOuts";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT CheckOutID, AccountID, CheckOutDate, DueDate FROM CheckOuts WHERE (DueDate" +
+                " < GETDATE())";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6524,6 +6571,19 @@ SELECT CheckOutID, AccountID, CheckOutDate, DueDate FROM CheckOuts WHERE (CheckO
             Library_DBDataSet.CheckOutsDataTable dataTable = new Library_DBDataSet.CheckOutsDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy(Library_DBDataSet.CheckOutsDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7808,7 +7868,7 @@ SELECT AccountID, FName, LName, Address, PhoneNum, FeesOwed FROM LibraryAccounts
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[5];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT AccountID, FName, LName, Address, PhoneNum, FeesOwed FROM dbo.LibraryAccou" +
@@ -7824,6 +7884,18 @@ SELECT AccountID, FName, LName, Address, PhoneNum, FeesOwed FROM LibraryAccounts
             this._commandCollection[2].CommandText = "SELECT        AccountID, FName, LName, Address, PhoneNum, FeesOwed\r\nFROM         " +
                 "   LibraryAccounts\r\nWHERE        (FeesOwed > 0)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = @"SELECT        LibraryAccounts.AccountID, LibraryAccounts.FName, LibraryAccounts.LName, LibraryAccounts.Address, LibraryAccounts.PhoneNum, LibraryAccounts.FeesOwed
+FROM            LibraryAccounts INNER JOIN
+                         FeePayments ON LibraryAccounts.AccountID = FeePayments.AccountID AND LibraryAccounts.AccountID <> FeePayments.AccountID
+WHERE        (LibraryAccounts.FeesOwed > 0)";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[4].Connection = this.Connection;
+            this._commandCollection[4].CommandText = "SELECT AccountID, FName, LName, Address, PhoneNum, FeesOwed FROM dbo.LibraryAccou" +
+                "nts\r\nWHERE FeesOwed > 0;";
+            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7869,6 +7941,32 @@ SELECT AccountID, FName, LName, Address, PhoneNum, FeesOwed FROM LibraryAccounts
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillBy1(Library_DBDataSet.LibraryAccountsDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy2(Library_DBDataSet.LibraryAccountsDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy3(Library_DBDataSet.LibraryAccountsDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[4];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
